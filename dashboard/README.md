@@ -18,16 +18,19 @@ It integrates with **Firebase Firestore** and **Firebase Storage** for secure, s
 ## 📁 Project Structure
 
 dashboard/
-├── public/ # Static files
-├── src/
-│ ├── components/ # Reusable UI components
-│ ├── pages/ # Log views, authentication, etc.
-│ ├── services/ # Firebase integration
-│ ├── styles/ # CSS & Tailwind setup
-│ └── App.tsx
-├── .env
-├── package.json
-└── README.md
+├── src/ # App source code (React + TypeScript)
+├── README.md # Dashboard-specific documentation
+├── eslint.config.js # ESLint configuration
+├── example.env # Sample environment variables
+├── index.html # HTML entry point
+├── package-lock.json # NPM lock file
+├── package.json # Project dependencies and scripts
+├── postcss.config.js # PostCSS config (used with TailwindCSS)
+├── tailwind.config.js # TailwindCSS custom configuration
+├── tsconfig.app.json # TypeScript config for app context
+├── tsconfig.json # Base TypeScript configuration
+├── tsconfig.node.json # TypeScript config for Node scripts
+├── vite.config.ts # Vite build configuration
 
 
 ## 🔐 Environment Variables (`.env`)
