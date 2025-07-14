@@ -16,5 +16,6 @@ It's designed for **educational or red-team simulation purposes only**.
 
 ---
 
-### 🧠 For full version (with Firebase, decryption, screenshots), contact me for **responsible use**.
+### 🧠 Want the Full Version?
+For **responsible disclosure, security audits, or academic research**, contact me on [LinkedIn](https://www.linkedin.com/in/ayush-gangwar-cyber/).
 
